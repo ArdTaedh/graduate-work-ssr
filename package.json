@@ -7,7 +7,7 @@
     "build": "npx tsc",
     "start": "node dist/index.js",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/src/index.js\"",
-    "sass": "sass --watch src/scss/index.scss public/styles/index.css"
+    "sass": "sass --watch src/scss/product.scss public/styles/product.css"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -21,6 +21,7 @@
     "http-errors": "^2.0.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.10.0",
+    "multer": "^1.4.5-lts.1",
     "sass": "^1.58.3"
   },
   "devDependencies": {
@@ -31,6 +32,7 @@
     "@types/hbs": "^4.0.1",
     "@types/http-errors": "^2.0.1",
     "@types/jsonwebtoken": "^9.0.1",
+    "@types/multer": "^1.4.7",
     "@types/node": "^18.14.1",
     "concurrently": "^7.6.0",
     "express-validator": "^6.15.0",

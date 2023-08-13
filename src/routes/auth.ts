@@ -1,14 +1,17 @@
 import express, {NextFunction, Request, Response} from "express"
 import {body, check, validationResult} from 'express-validator'
 import { hash, compare } from 'bcryptjs'
-import { sign } from 'jsonwebtoken'
 
 import {User} from "../models/User";
 
 export const authRouter = express.Router()
 
 authRouter.get('/login', (req: Request, res: Response) => {
-    res.render('login')
+    if (req.session.user! && req.cookies['connect.sid']) {
+        res.redirect('../')
+    } else {
+        res.render('login')
+    }
 })
 
 authRouter.get('/register', (req: Request, res: Response) => {
@@ -79,9 +82,9 @@ authRouter.post(
             //     })
 
             //@ts-ignore
-            req.session.user = { id: candidate._id, email: candidate.email }
-            //@ts-ignore
-            if (req.session.user !== undefined) {
+            req.session.user = { id: candidate._id, email: candidate.email, role: candidate.role }
+
+            if (req.session.user) {
                 res.redirect('../')
             }
 

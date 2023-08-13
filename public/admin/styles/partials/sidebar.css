@@ -17,14 +17,15 @@
   padding: 0.5rem 1rem;
   color: white;
   text-decoration: none;
-
-  &:hover {
-    background-color: #31363c;
-    color: #f0f0f0;
-  }
+}
+.sidebar-item:hover {
+  background-color: #31363c;
+  color: #f0f0f0;
 }
 
 .active {
   background-color: #31363c;
   color: #f0f0f0;
 }
+
+/*# sourceMappingURL=sidebar.css.map */

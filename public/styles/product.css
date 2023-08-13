@@ -1,0 +1,7 @@
+.product-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+/*# sourceMappingURL=product.css.map */

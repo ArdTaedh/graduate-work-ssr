@@ -16,6 +16,13 @@ main {
   flex-direction: row;
 }
 
+nav .active {
+  background: transparent;
+}
+
 section {
+  padding: 0.5rem 1rem;
   width: calc(100% - 12rem);
 }
+
+/*# sourceMappingURL=product-edit.css.map */
