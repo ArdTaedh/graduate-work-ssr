@@ -16,8 +16,3 @@ indexRouter.get('/product/:id', async (req: Request, res: Response) => {
 
     res.render('product', { product: product })
 })
-
-indexRouter.get('/cart', async (req: Request, res: Response) => {
-
-    res.render('cart', {  })
-})

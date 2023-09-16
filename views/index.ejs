@@ -51,7 +51,7 @@
         </div>
     </nav>
 
-        <div class="product-wrapper mt-4 d-flex flex-row gap-3">
+        <div class="container product-wrapper mt-4 d-flex flex-row gap-3">
             <% if (typeof products === "null") { %>
                 No Products
             <% } else { %>
@@ -66,9 +66,11 @@
                                 <a class="stretched-link" style="right: unset;" href="/product/<%= products[i]._id %>/">
                                     
                                 </a>
-                                <a class="btn btn-primary z-3" style="right: unset;" href="#">
-                                    Add to Cart
-                                </a>
+                                <form action="/cart/add" method="post">
+                                    <button class="btn btn-primary z-3" style="right: unset;" value="<%= products[i]._id %>" name="productId">
+                                        Add to Cart
+                                    </button>
+                                </form> 
                           </div>
                         </div>
                     <% } %>

@@ -18,7 +18,7 @@ interface IProduct {
     image: string
     category: string
     description: string
-    price: string
+    price: number
     countInStock: string
     rating: string
 }
@@ -29,7 +29,7 @@ const productSchema = new Schema<IProduct>({
     image: { type: String },
     category: { type: String },
     description: { type: String },
-    price: { type: String },
+    price: { type: Number },
     countInStock: { type: String },
     rating: { type: String }
 })
