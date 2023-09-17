@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./icon2.png">
+    <title>Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<body>
+    <%- include("./partials/header") %>
+    <div
+        class="container d-flex flex-column gap-2 mt-2"
+    >
+    <% if (cartItems.length === 0) { %>
+        Your Cart is empty
+    <% } else { %>
+            <% for (let i = 0; i < cartItems.length ; i++) { %>
+                <div class="card d-flex flex-row gap-4 align-items-center h-50 p-2 container justify-content-around">
+                    <h5 class="card-title" style="width: 20%;"> 
+                        <%= cartItems[i].items.name %>
+                    </h5>
+                    <img class="" src="/images/<%= cartItems[i].items.img %>" alt="" style="height: 120px; width: 100px;">
+                    <h5 class="mb-0">
+                        Qty: <%= cartItems[i].items.qty %>
+                    </h5>
+                    <h5 class="mb-0">
+                        Price: <%= cartItems[i].items.price %> ₴
+                    </h5>
+                    <div
+                        class="actions d-flex gap-3"
+                    >
+                        <form action="/cart/add" method="post">
+                            <button  class="btn btn-light" value="<%= cartItems[i].items.productId %>" name="productId">
+                                +
+                            </button>
+                        </form>
+                        <form action="/cart/remove" method="post">
+                            <button class="btn btn-light" value="<%= cartItems[i].items.productId %>" name="productId">
+                                -
+                            </button>
+                        </form>
+                    </div>
+                    
+                </div>
+            <% } %>
+            <h1>Total Price: <%= total %> ₴</h1>
+        <% } %>
+    </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

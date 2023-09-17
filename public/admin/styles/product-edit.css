@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+.admin-page {
+  height: inherit;
+}
+
+main {
+  height: calc(100% - 58px);
+  display: flex;
+  flex-direction: row;
+}
+
+nav .active {
+  background: transparent;
+}
+
+section {
+  padding: 0.5rem 1rem;
+  width: calc(100% - 12rem);
+}
+
+/*# sourceMappingURL=product-edit.css.map */

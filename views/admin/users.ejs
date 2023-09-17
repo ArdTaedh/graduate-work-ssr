@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./icon2.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/search.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles/users.css">
+    <link rel="stylesheet" href="styles/partials/sidebar.css">
+    <title>Users</title>
+</head>
+<body>
+<div class="admin-page">
+    <%- include("../admin-partials//header") %>
+
+    <main>
+        <%- include("../admin-partials//sidebar") %>
+
+        <section style="width: calc(100% - 12rem)">
+            <% if (typeof users !== "undefined") { %>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="col">#</th>
+                            <th class="col">ID</th>
+                            <th class="col">Email</th>
+                            <th class="col">Role</th>
+                            <th class="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let i = 0; i < users.length ; i++) { %>
+                            <tr>
+                                <th><%= i %></th>
+                                <th><%= (users[i]._id).toString() %></th>
+                                <th><%= users[i].email %></th>
+                                <th><%= users[i].role %></th>
+                                <th>
+                                    <button class="btn btn-danger">
+                                        Remove
+                                    </button>
+                                </th>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            <% } %>
+        </section>
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+</html>
